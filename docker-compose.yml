@@ -24,7 +24,7 @@ services:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "nikesz/multifib:fib-nginx"
+    image: "nikesz/multifib:fib-router"
     mem_limit: 128m
     hostname: nginx
     ports:

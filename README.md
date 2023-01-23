@@ -36,3 +36,11 @@ Wynik działania polecenia ```aws rds describe-db-instances --db-instance-identi
 
 # 2.
 
+W celu wykonania zadania kierowałem się następującym poradnikiem: [GitHub Actions Deploy by Git Tag to AWS Elastic Beanstalk](https://gist.github.com/noinarisak/c665f18bdd343880ab2e49253d085b0c)
+
+
+W ```inputs``` w ```workflow_dispatch``` można zdefiniować wartości pobierane od użytkownika przy uruchomianiu GA Workflow. W tym przypadku tag oraz nazwa aplikacji. Dotyczyąca tego dokumentacja: [GitHub Actions: Input types for manual workflows](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)
+
+Jobs o nazwach ```Checkout source code``` i ```Checkout version tag``` umożliwiają worklfow dostęp do kodu, jak i tagu.
+
+```version_label``` i ```version_description``` w job o nazwie ```Deploy to EB``` (wykorzystującym [GitHub Action Beanstalk Deploy](https://github.com/marketplace/actions/beanstalk-deploy)) zostaną automatycznie ustawione odpowiednio na tag i SHA commitu.
